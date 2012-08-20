@@ -16,10 +16,7 @@
       wrapperClass : 'ui-scrollbar',
       contentClass : 'ui-scrollbar-content',
       gutterClass : 'ui-scrollbar-gutter',
-      handleClass : 'ui-scrollbar-handle',
-      hiddenClass : 'ui-scrollbar-hidden',
-
-      hideDelay : 1 * 1000
+      handleClass : 'ui-scrollbar-handle'
     },
 
     _create : function() {
@@ -28,16 +25,7 @@
       this.percent = 0;
       this.contents = this.element.contents();
 
-      this.$wrapper = $(this.element).addClass(this.options.wrapperClass +
-                          ' ' + this.options.hiddenClass)
-                        .hover(function() {
-                          clearTimeout(self.hideTimer);
-                          self.$wrapper.removeClass(self.options.hiddenClass);
-                        }, function() {
-                          self.hideTimer = setTimeout(function() {
-                            self.$wrapper.addClass(self.options.hiddenClass);
-                          }, self.options.hideDelay);
-                        }),
+      this.$wrapper = $(this.element).addClass(this.options.wrapperClass),
       this.$content = $('<div>', {
                           'class' : this.options.contentClass
                         })
@@ -55,9 +43,6 @@
                             'axis' : 'y',
                             'containment' : this.$gutter,
 
-                            'start' : function() {
-                              clearTimeout(self.hideTimer);
-                            },
                             'drag' : function(e) {
                               self._drag(e);
                             }
@@ -109,12 +94,12 @@
         'height' : this._getHandleHeight()
       });
 
-      this._setHandlePosition(this.percent);
-      this._setContentPosition(this.percent);
+      this.scrollto(percent);
     },
 
     scrollto : function(percent) {
-
+      this._setHandlePosition(this.percent);
+      this._setContentPosition(this.percent);
     }
   });
 
