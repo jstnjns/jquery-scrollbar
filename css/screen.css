@@ -4,26 +4,26 @@
   overflow: auto;
 }
 
-.ui-iosscrollbar {
+.ui-scrollbar {
   position: relative;
   overflow: hidden !important;
   background: #eee;
 }
 
-  .ui-iosscrollbar-content {
+  .ui-scrollbar-content {
     position: absolute;
     left: 0; top: 0; right: 0;
     padding: 10px;
   }
 
-  .ui-iosscrollbar-gutter {
+  .ui-scrollbar-gutter {
     position: absolute;
     right: 0; top: 0; bottom: 0;
     margin: 4px;
     width: 6px;
   }
 
-  .ui-iosscrollbar-handle {
+  .ui-scrollbar-handle {
     position: absolute;
     left: 0; top: 0;
     width: 100%;

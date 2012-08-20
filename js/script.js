@@ -1,5 +1,5 @@
 $(function() {
 
-  $('#ios').iosscrollbar();
+  $('#ios').scrollbar();
 
 });

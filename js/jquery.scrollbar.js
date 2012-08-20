@@ -1,23 +1,23 @@
 /**
  * --------------------------------------------------------------------
- * jQuery iOS Scrollbar
+ * jQuery  Scrollbar
  * Author: Justin Jones, justin@jstnjns.com
  * Version: 0.0.1
  * Copyright (c) 2011 Justin Jones
  *
- * Write description
+ * A simple, flexible, and stylable scrollbar widget
  *
  * --------------------------------------------------------------------
  */
 (function($) {
 
-  $.widget('jstnjns.iosscrollbar', {
+  $.widget('jstnjns.scrollbar', {
     options : {
-      wrapperClass : 'ui-iosscrollbar',
-      contentClass : 'ui-iosscrollbar-content',
-      gutterClass : 'ui-iosscrollbar-gutter',
-      handleClass : 'ui-iosscrollbar-handle',
-      hiddenClass : 'ui-iosscrollbar-hidden',
+      wrapperClass : 'ui-scrollbar',
+      contentClass : 'ui-scrollbar-content',
+      gutterClass : 'ui-scrollbar-gutter',
+      handleClass : 'ui-scrollbar-handle',
+      hiddenClass : 'ui-scrollbar-hidden',
 
       hideDelay : 1 * 1000
     },
@@ -28,7 +28,8 @@
       this.percent = 0;
       this.contents = this.element.contents();
 
-      this.$wrapper = $(this.element).addClass(this.options.wrapperClass + ' ' + this.options.hiddenClass)
+      this.$wrapper = $(this.element).addClass(this.options.wrapperClass +
+                          ' ' + this.options.hiddenClass)
                         .hover(function() {
                           clearTimeout(self.hideTimer);
                           self.$wrapper.removeClass(self.options.hiddenClass);
@@ -75,11 +76,14 @@
     },
 
     _getHandleHeight : function() {
-      return this.$wrapper.outerHeight() / this.$content.outerHeight() * this.$gutter.outerHeight();
+      return this.$wrapper.outerHeight() /
+        this.$content.outerHeight() *
+        this.$gutter.outerHeight();
     },
 
     _getHandlePosition : function() {
-      return this.percent = this.$handle.position().top / (this.$gutter.outerHeight() - this.$handle.outerHeight());
+      return this.percent = this.$handle.position().top /
+        (this.$gutter.outerHeight() - this.$handle.outerHeight());
     },
 
     _setContentPosition : function(percent) {
